@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const StoryRouter = express.Router();
-const Story = require('../models/stories');
+
 StoryRouter.use(bodyParser.json());
+const Story = require('../models/stories');
+
 StoryRouter
     .get("/", function (req, res, next) {
         Story.find({})
