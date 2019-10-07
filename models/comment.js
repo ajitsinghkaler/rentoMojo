@@ -17,12 +17,13 @@ var commentSchema = new Schema({
         type: [String],
     },
     story:{
-        type:String
+        type:String,
+        required: true
     }
 }, {
     timestamps: true
 });
 
-var Comments = mongoose.model('Story', commentSchema);
+var Comments = mongoose.model('Comment', commentSchema);
 
 module.exports = Comments;
