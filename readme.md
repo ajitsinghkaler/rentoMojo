@@ -27,3 +27,5 @@ Username check in delete and editing comments
 (Add req.user.username = (comment.author from db) check)
 
 Mongo used in old way
+
+Add total comments in stories
