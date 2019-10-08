@@ -1,15 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const mongoose = require('mongoose');
-var passport = require('passport');
+const passport = require('passport');
 
-var authenticate = require('./authenticate')
-var commentRouter = require('./routes/comments');
-var usersRouter = require('./routes/users');
-var storyRouter = require('./routes/stories');
+const authenticate = require('./authenticate')
+const commentRouter = require('./routes/comments');
+const usersRouter = require('./routes/users');
+const storyRouter = require('./routes/stories');
+const cors = require('cors');
 const url = require('./config/config').url;
 const connect = mongoose.connect(url);
 
@@ -18,7 +19,7 @@ var app = express();
 connect.then((db) => {
   console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
-
+app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
